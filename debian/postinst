@@ -20,11 +20,13 @@ set -e
 
 case "$1" in
     configure)
-	touch /home/configure $1 $2
+	touch /home/postinst-config
+	echo "ARGS: $1" >> /home/postinst-config
     ;;
 
     abort-upgrade|abort-remove|abort-deconfigure)
-	touch /home abort $1 $2
+	touch /home/postinst-abort
+	echo "ARGS: $1" >> /home/postinst-abort
     ;;
 
     *)
